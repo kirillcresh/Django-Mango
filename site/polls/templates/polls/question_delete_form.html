@@ -1,0 +1,13 @@
+{% extends 'polls/navigation.html' %}
+
+{% block content %}
+<div>
+    <h1 align="center">Deleting a question</h1><br>
+    <h4 align="center" class="p-2">Delete a question?</h4>
+</div>
+<form align="center" method="post">
+    {% csrf_token %}
+    <button class="btn btn-success btn-lg" type="submit" style="width: 100px; margin-top: 350px">Yes</button>
+</form>
+
+{% endblock %}

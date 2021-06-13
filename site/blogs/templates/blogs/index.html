@@ -1,0 +1,31 @@
+{% extends 'polls/navigation.html' %}
+
+{% block content %}
+{% if latest_blog_list %}
+<div>
+    <h1 align="center" class="p-2 ">Blogs</h1>
+</div>
+<div style="position:absolute; top:44%; left:37%">
+    <ul>
+        {% for blog in latest_blog_list %}
+        <li>
+            <a href="{% url 'blogs:detail' blog.id %}">{{ blog.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div style="margin-left: 120px">
+        <p><a class="btn btn-success btn-lg"
+              onclick="document.location='../../blogs/create'">Create blog</a></p>
+    </div>
+</div>
+{% else %}
+
+<div style="border: 1px solid #237523; background: #d1f9a0; position:absolute; top: 30%; left: 36%; width: 400px">
+    <h1 align="center">Blogs</h1>
+</div>
+<h4 align="center" style="margin: 10px; margin-top: 260px">No blogs available
+    <p><a class="btn btn-success btn-lg" style="margin: 10px; margin-top: 40px"
+          onclick="document.location='../../blogs/create'">Create blog</a></p></h4>
+{% endif %}
+
+{% endblock %}

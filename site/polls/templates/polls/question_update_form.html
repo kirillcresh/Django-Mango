@@ -1,0 +1,16 @@
+{% extends 'polls/navigation.html' %}
+
+{% block content %}
+
+
+<div>
+    <h2 align="center">Updating a question</h2>
+</div>
+<form align="center" style="margin-top: 250px" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary btn-lg btn-success" type="submit" style="width: 150px">Update</button>
+</form>
+
+
+{% endblock %}

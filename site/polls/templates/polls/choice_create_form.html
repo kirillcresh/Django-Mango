@@ -1,0 +1,12 @@
+{% extends 'polls/navigation.html' %}
+
+{% block content %}
+<div>
+    <h2 align="center">Creating a choice</h2>
+</div>
+<form align="center" style="margin-top: 250px" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary btn-lg btn-success" type="submit" value="Create" style="width: 100px; margin-top: 10px"/>
+</form>
+{% endblock %}

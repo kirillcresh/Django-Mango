@@ -1,0 +1,13 @@
+{% extends 'polls/navigation.html' %}
+
+{% block content %}
+
+<div style="border: 1px solid #237523; background: #d1f9a0; position:absolute; top: 30%; left: 38%; width: 400px">
+    <h2 align="center">Deleting a choice</h2><br>
+    <h4 align="center" class="p-2">Delete a choice?</h4>
+</div>
+<form align="center" method="post">
+    {% csrf_token %}
+    <button class="btn btn-success btn-lg" type="submit" style="width: 100px; margin-top: 350px">Yes</button>
+</form>
+{% endblock %}

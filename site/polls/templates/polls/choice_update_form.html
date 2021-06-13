@@ -1,0 +1,13 @@
+{% extends 'polls/navigation.html' %}
+
+{% block content %}
+<div style="border: 1px solid #237523; background: #d1f9a0; position:absolute; top: 30%; left: 38%; width: 400px">
+    <h2 align="center">Updating a choice</h2>
+</div>
+<form style="margin-top: 250px" align="center" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+     <input class="btn btn-primary btn-lg btn-success" type="submit" value="Update"/>
+</form>
+
+{% endblock %}

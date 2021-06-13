@@ -1,0 +1,24 @@
+{% extends 'polls/navigation.html' %}
+
+{% block content %}
+    <h1 align="center" class="p-2" style="margin-top: 130px">{{ question.question_text }}</h1>
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form align="center" class = "p-2" action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label style="margin-right: 50px" for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+        <a class="btn btn-success btn-sm"
+               onclick="document.location='../../polls/{{ choice.id }}/update_choice'">Update</a>
+        <a class="btn btn-warning btn-sm"
+               onclick="document.location='../../polls/{{ choice.id }}/choice_delete/'">Delete</a><br><br>
+    {% endfor %}
+        <p><a class="btn btn-outline-success"
+                             onclick="document.location='../../polls/{{ question.id }}/update_question/'">Update question</a>
+        <a class="btn btn-outline-warning"
+           onclick="document.location='../../polls/{{ question.id }}/question_delete/'">Delete question</a></p>
+        <button class="btn btn-primary btn-sm btn-success" type="submit" style="width: 150px">Vote</button>
+    </form>
+{% endblock %}

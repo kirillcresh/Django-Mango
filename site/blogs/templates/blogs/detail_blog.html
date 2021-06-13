@@ -1,0 +1,34 @@
+{% extends 'polls/navigation.html' %}
+{% block content %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<div style="border: 1px solid #237523; background: #d1f9a0">
+    <h1 align="center">
+        {{ blog.title }}
+</h1></div>
+
+<div class="container" style="position: absolute; top:20%; left:10%">
+    <div class="row align-items-start">
+        <div class="col">
+            <p style="font-size: 11px;"><big><big>{{ blog.content }}</big></big>
+            <br>
+            <p style="color:green">
+                Published date: {{ blog.pub_date }}
+
+        </div>
+        <div class="col" style="overflow: hidden">
+            <p><img src="{{ blog.image.url }}" height="100%" width="100%"></p>
+
+        </div>
+    </div>
+</div>
+<div style="position:absolute; top: 70%; left: 11%">
+    <button class="btn btn-success btn-lg" style="width:150px"
+            onclick="document.location='../../blogs/{{ blog.id }}/blog_update/'">Update
+    </button>
+    <i class="px-2"></i>
+    <button class="btn btn-warning btn-lg" style="width:150px"
+            onclick="document.location='../../blogs/{{ blog.id }}/blog_delete/'">Delete
+    </button>
+</div>
+{% endblock %}
